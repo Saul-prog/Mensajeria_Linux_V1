@@ -1,0 +1,30 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.6.33801.468
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Mensajeria_Linux", "Mensajeria_Linux.csproj", "{84B4E50E-A1E9-4938-AC73-9726F3797FE1}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{FF82BB50-B2CC-4722-BE64-6F3F043DBAC2}"
+	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{84B4E50E-A1E9-4938-AC73-9726F3797FE1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{84B4E50E-A1E9-4938-AC73-9726F3797FE1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{84B4E50E-A1E9-4938-AC73-9726F3797FE1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{84B4E50E-A1E9-4938-AC73-9726F3797FE1}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {01E10754-06A7-4113-9A7D-B4C522CCAB24}
+	EndGlobalSection
+EndGlobal
