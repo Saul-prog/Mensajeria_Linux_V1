@@ -1,4 +1,5 @@
 ﻿using Mensajeria_Linux.Business.Models;
+using System.ComponentModel.DataAnnotations;
 
 namespace Mensajeria_Linux.Controllers.Email.Models
 {
@@ -10,6 +11,7 @@ namespace Mensajeria_Linux.Controllers.Email.Models
         /// <summary>
         /// Nombre de la agencia que va a enviar el email
         /// </summary>
+        [Required]
         public string nombreAgencia { get; set; } 
         /// <summary>
         /// Token de la agencia que va a enviar el email
@@ -18,10 +20,12 @@ namespace Mensajeria_Linux.Controllers.Email.Models
         /// <summary>
         /// Lista de los destinatarios, con email y nombre
         /// </summary>
+        [Required]
         public List<DatosEmail> emailsDestino { get; set; }
         /// <summary>
         /// Plantilla que se va a usar
         /// </summary>
+        [Required]
         public string plantilla { get; set; }
         /// <summary>
         /// Datos para rellenar la plantilla AutorizacionDatos
@@ -30,10 +34,12 @@ namespace Mensajeria_Linux.Controllers.Email.Models
         /// <summary>
         /// Email de origen
         /// </summary>
+        [Required]
         public string emailOrigen { get; set; }
         /// <summary>
         /// Asunto del Email
         /// </summary>
+        [Required]
         public string asunto { get; set; }
         /// <summary>
         /// Ficheros que se van a enviar con nombre, fichero codificado en base64 y extensión del fichero

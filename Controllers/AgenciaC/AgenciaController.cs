@@ -85,7 +85,7 @@ namespace Mensajeria_Linux.Controllers.AgenciaC
                     StatusCode = StatusCodes.Status200OK
                 };
             }
-            return new ObjectResult("Agencia no se ha creado")
+            return new ObjectResult("Agencia no se ha actualizado")
             {
                 StatusCode = StatusCodes.Status500InternalServerError
             };
@@ -94,13 +94,12 @@ namespace Mensajeria_Linux.Controllers.AgenciaC
         /// Obtiene una lista de agencias o una agencia específica por nombre.
         ///</summary>
         /// <param name="model">Los datos para buscar agencias.</param>
-        [HttpPost("Ver")]
-        public async Task<IActionResult> VerAgencias (VerAgencia model)
-        {
-            
-            if (string.IsNullOrEmpty(model.nombreAgencia))
+        [HttpGet("Ver")]
+        public async Task<IActionResult> VerAgencias (string nombreAgencia,string emailAdmin, string tokenAdmin)
+        {            
+            if (string.IsNullOrEmpty(nombreAgencia))
             {
-                IEnumerable<Agencia> agencia = await _agenciaBusiness.GetAllAgencias(model.emailAdmin, model.tokenAdmin);
+                IEnumerable<Agencia> agencia = await _agenciaBusiness.GetAllAgencias(emailAdmin, tokenAdmin);
                 if (agencia != null)
                 {
                     return new ObjectResult(agencia)
@@ -115,7 +114,7 @@ namespace Mensajeria_Linux.Controllers.AgenciaC
             }
             else
             {
-                Agencia agencia =  await _agenciaBusiness.GetAgenciaByName(model.nombreAgencia, model.emailAdmin, model.tokenAdmin);
+                Agencia agencia =  await _agenciaBusiness.GetAgenciaByName(nombreAgencia, emailAdmin, tokenAdmin);
                 if (agencia != null)
                 {
                     return new ObjectResult(agencia)

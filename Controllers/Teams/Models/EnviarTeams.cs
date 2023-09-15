@@ -1,4 +1,5 @@
 ﻿using Mensajeria_Linux.Business.Models;
+using System.ComponentModel.DataAnnotations;
 
 namespace Mensajeria_Linux.Controllers.Teams.Models
 {
@@ -14,14 +15,17 @@ namespace Mensajeria_Linux.Controllers.Teams.Models
         /// <summary>
         /// Plantilla que se va a utilizar
         /// </summary>
-        public  string plantilla { get; set; }
+        [Required]
+        public string plantilla { get; set; }
         /// <summary>
         /// Nombre del webhook que se va a usar
         /// </summary>
+        [Required]
         public string nombre { get; set; }
         /// <summary>
         /// Nombre de la agencia que va a mandar el mensaje
         /// </summary>
+        [Required]
         public string nombreAgencia { get; set; }
         /// <summary>
         /// Token de la agencia que va a mandar el mensaje

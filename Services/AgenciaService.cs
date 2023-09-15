@@ -44,7 +44,7 @@ namespace Mensajeria_Linux.Services
             }
             Agencia agencia = _mapper.Map<Agencia>(model);
             _dbContext.Agencias.Add(agencia);
-           if( await _dbContext.SaveChangesAsync()!=1 )
+           if( await _dbContext.SaveChangesAsync().ConfigureAwait(true) != 1 )
             {
                 return agencia.id;
             }

@@ -19,10 +19,11 @@ namespace Mensajeria_Linux.Controllers.PlantillasC.Models
         /// <summary>
         /// Fichero para plantillas en JSON
         /// </summary>
+        [Required]
         public IFormFile file { get; set; }
         /// <summary>
         /// Plantilla en texto plano
-        /// </summary>
+        /// </summary> 
         public string? plantillaPlana { get; set; }
         /// <summary>
         /// Correo de autentificacion de administrador

@@ -30,7 +30,7 @@ namespace Mensajeria_Linux.Business.Interfaces
         /// <param name="agenciaNombre"></param>
         /// <param name="agenciaToken"></param>
         /// <returns>Lista de los registros plantilla</returns>
-        Task<IEnumerable<Plantillas>> GetAllPlantillasByName (string nombre, string adminEmail, string adminToken, string agenciaNombre, string agenciaToken);
+        Task<IEnumerable<Plantillas>> GetAllPlantillasByName (string nombre, string? adminEmail, string? adminToken, string agenciaNombre, string? agenciaToken);
         /// <summary>
         /// Interfaz para actualiza una plantilla de una agencia comprobando que sea agencia o administrador
         /// </summary>

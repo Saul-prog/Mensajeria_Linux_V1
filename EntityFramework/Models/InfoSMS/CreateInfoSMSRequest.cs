@@ -15,7 +15,7 @@ namespace Mensajeria_Linux.EntityFramework.Models.InfoSMS
         public string awsSecretKey { get; set; }
         [Required]
         public string nombreAgencia { get; set; }
-        public string tokenAgencia { get; set; }
+        public string? tokenAgencia { get; set; }
         public DateTime Created { get; set; }
 
     }

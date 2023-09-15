@@ -14,10 +14,10 @@ namespace Mensajeria_Linux.Controllers.SMSC.Models
         /// <summary>
         /// email de autentificación de administrador
         /// </summary>
-        public string adminEmail { get; set; }
+        public string? adminEmail { get; set; }
         /// <summary>
         /// token de autentificación de administrador
         /// </summary>
-        public string adminToken { get; set; }
+        public string? adminToken { get; set; }
     }
 }

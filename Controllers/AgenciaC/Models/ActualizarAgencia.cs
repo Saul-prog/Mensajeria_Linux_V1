@@ -10,7 +10,6 @@ namespace Mensajeria_Linux.Controllers.AgenciaC.Models
         /// <summary>
         /// Nombre de la agencia a actualizar
         /// </summary>
-        [Required]
         public string? nombreAgencia { get; set; }
 
         /// <summary>
@@ -36,10 +35,12 @@ namespace Mensajeria_Linux.Controllers.AgenciaC.Models
         /// <summary>
         /// Email del administrador
         /// </summary>
-        public string? emailAdmin { get; set; }
+        [Required]
+        public string emailAdmin { get; set; }
         /// <summary>
         /// Token del administrador
         /// </summary>
-        public string? tokenAdmin { get; set; }
+        [Required]
+        public string tokenAdmin { get; set; }
     }
 }

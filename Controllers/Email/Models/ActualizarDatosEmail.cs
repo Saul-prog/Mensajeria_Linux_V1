@@ -15,7 +15,6 @@ namespace Mensajeria_Linux.Controllers.Email.Models
         /// <summary>
         /// Token de la agencia a la que le pertenecen los datos del email
         /// </summary>
-        [Required]
         public string? tokenAgencia { get; set; }
         /// <summary>
         /// Host que se va a usar para el envío de los email

@@ -50,7 +50,7 @@ namespace Mensajeria_Linux.Services
             plantilla.created = DateTime.Now;
             plantilla.agenciaId = id;
             _dbContext.Plantilla.Add(plantilla);
-            if (await _dbContext.SaveChangesAsync() != 1)
+            if (await _dbContext.SaveChangesAsync().ConfigureAwait(true) != 0)
             {
                 return plantilla.id;
             }

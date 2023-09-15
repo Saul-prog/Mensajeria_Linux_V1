@@ -13,11 +13,11 @@ namespace Mensajeria_Linux.Controllers.SMSC.Models
         public UpdateInfoSMSRequest SMSRequest { get; set; }
         /// <summary>
         /// email de autentificación de administrador
-        /// </summary>
-        public string adminEmail { get; set; }
+        /// </summary>        
+        public string? adminEmail { get; set; }
         /// <summary>
         /// token de autentificación de administrador
         /// </summary>
-        public string adminToken { get; set; }
+        public string? adminToken { get; set; }
     }
 }

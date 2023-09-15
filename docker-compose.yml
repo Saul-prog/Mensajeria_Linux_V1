@@ -20,6 +20,6 @@ services:
    depends_on:
      - db
    environment:
-     ASPNETCORE_ENVIRONMENT: "Development"
+     ASPNETCORE_ENVIRONMENT: "Production"
 volumes:
  postgres-data:

@@ -53,7 +53,7 @@ namespace Mensajeria_Linux.Business
         /// <param name="agenciaNombre"></param>
         /// <param name="agenciaToken"></param>
         /// <returns>Lista de los registros plantilla</returns>
-        public async Task<IEnumerable<Plantillas>> GetAllPlantillasByName (string nombre, string adminEmail, string adminToken, string agenciaNombre, string agenciaToken)
+        public async Task<IEnumerable<Plantillas>> GetAllPlantillasByName (string nombre, string? adminEmail, string? adminToken, string agenciaNombre, string? agenciaToken)
         {           
             return await _plantillaService.GetAllPlantillasById(await GetIdAgencia(adminEmail, adminToken, agenciaNombre, agenciaToken));                       
         }
@@ -92,7 +92,7 @@ namespace Mensajeria_Linux.Business
         ///     Fracaso: int = 0
         /// </returns>
         /// <exception cref="Exception">No existe Agencia</exception>
-        public async Task<int> DeletePlantilla (int id, string adminEmail, string adminToken, string agenciaNombre, string agenciaToken)
+        public async Task<int> DeletePlantilla (int id, string? adminEmail, string? adminToken, string agenciaNombre, string? agenciaToken)
         {
             if (await GetIdAgencia(adminEmail, adminToken, agenciaNombre, agenciaToken) == 0)
             {

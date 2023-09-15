@@ -39,12 +39,15 @@ namespace Mensajeria_Linux.Controllers.PlantillasC
         [HttpPost("Crear")]
         public async Task<ActionResult> CrearPlantilla([FromForm] CrearPlantilla model )
         {
-            byte[] fileBytes;
+            byte[] fileBytes=null;
+
+
             using (var memoryStream = new MemoryStream())
             {
                 await model.file.CopyToAsync(memoryStream);
                 fileBytes = memoryStream.ToArray();
             }
+            
             CreatePlantillaRequest plantillaRequest = new CreatePlantillaRequest
                 {
                     nombre = model.nombre,
@@ -81,7 +84,7 @@ namespace Mensajeria_Linux.Controllers.PlantillasC
         /// <param name="agenciaToken"></param>
         /// <returns> Lista de plantillas </returns>
         [HttpGet("{agenciaNombre}")]
-        public async Task<IActionResult> GetAllInfoEmailByAgencia (string plantilla, string email,string token, string agenciaNombre, string agenciaToken)
+        public async Task<IActionResult> GetAllInfoEmailByAgencia (string plantilla, string? email,string? token, string agenciaNombre, string? agenciaToken)
         {
             IEnumerable<Plantillas> plantillas = await _plantillaBusiness.GetAllPlantillasByName(plantilla,email, token, agenciaNombre, agenciaToken);
 
@@ -141,7 +144,7 @@ namespace Mensajeria_Linux.Controllers.PlantillasC
         ///          Status 500 si ha ocurrido algún error
         /// </returns>
         [HttpDelete("Eliminar")]
-        public async Task<IActionResult> DeletePlantilla(int id, string emailAdmin,string TokenAmin, string agenciaNombre, string agenciaToken)
+        public async Task<IActionResult> DeletePlantilla(int id, string? emailAdmin,string? TokenAmin, string agenciaNombre, string? agenciaToken)
         {
             int deveulto = await _plantillaBusiness.DeletePlantilla(id, emailAdmin, TokenAmin, agenciaNombre, agenciaToken);
             if (deveulto == 0)
