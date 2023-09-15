@@ -190,8 +190,7 @@ namespace Mensajeria_Linux
                               });
             }
 
-            applicationBuilder.UseHttpsRedirection()
-                              .UseDefaultFiles()
+            applicationBuilder.UseDefaultFiles()
                               .UseStaticFiles()
                               .UseRouting()
                               .UseAuthentication()
