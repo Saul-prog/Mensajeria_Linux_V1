@@ -78,7 +78,8 @@ namespace Mensajeria_Linux
 
             services.AddControllers(options =>
             {
-                options.Conventions.Add(new RouteTokenTransformerConvention(new SlugifyParameterTransformer()));
+                options.Conventions.Add(new RouteTokenTransformerConvention
+                    (new SlugifyParameterTransformer()));
                 options.SuppressAsyncSuffixInActionNames = true;
                 options.RequireHttpsPermanent = false;
                 options.Filters.Add(typeof(RequestLoggerFilter));
@@ -101,8 +102,9 @@ namespace Mensajeria_Linux
                 {
                     Email = "you@your-company.com"
                 };
-
-                config.CustomOperationIds(e => $"{e.ActionDescriptor.RouteValues["controller"]}_{e.GroupName}_{e.ActionDescriptor.RouteValues["action"]}_{e.HttpMethod}");
+                config.CustomOperationIds(e => $"{e.ActionDescriptor.RouteValues["controller"]}" +
+                $"_{e.GroupName}_" +
+                $"{e.ActionDescriptor.RouteValues["action"]}_{e.HttpMethod}");
                 config.CustomSchemaIds(type => type.ToString());
                 config.SwaggerDoc("v1", new OpenApiInfo
                 {
@@ -122,11 +124,9 @@ namespace Mensajeria_Linux
                 });
                 config.EnableAnnotations();
                 config.DescribeAllParametersInCamelCase();
-
                 var xmlFileApi = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
                 var xmlPathApi = Path.Combine(AppContext.BaseDirectory, xmlFileApi);
                 config.IncludeXmlComments(xmlPathApi);
-
                 var xmlFileModels = $"{Assembly.GetAssembly(typeof(Startup)).GetName().Name}.xml";
                 var xmlPathModels = Path.Combine(AppContext.BaseDirectory, xmlFileModels);
                 config.IncludeXmlComments(xmlPathModels);
@@ -189,7 +189,7 @@ namespace Mensajeria_Linux
                                   options.RoutePrefix = @"swagger";
                               });
             }
-
+            logger.LogInformation("Inicio de la definición de constructor de aplicación");
             applicationBuilder.UseDefaultFiles()
                               .UseStaticFiles()
                               .UseRouting()
@@ -198,7 +198,7 @@ namespace Mensajeria_Linux
                               {
                                   endpoints.MapControllers();
                               });
-
+            logger.LogInformation("Fin de la definición de constructor de aplicació");
 
 
             applicationBuilder.UseCors(x => x
@@ -206,7 +206,6 @@ namespace Mensajeria_Linux
                 .AllowAnyMethod()
                 .AllowAnyHeader());
             applicationBuilder.UseMiddleware<GlobalErrorHandlingMiddleware>();
-            logger.LogInformation(@"Request pipeline successfully configured for '{Environment}' environment...", hostEnvironment.EnvironmentName);
         }
     }
 }
