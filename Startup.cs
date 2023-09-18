@@ -193,7 +193,6 @@ namespace Mensajeria_Linux
             applicationBuilder.UseDefaultFiles()
                               .UseStaticFiles()
                               .UseRouting()
-                              .UseAuthentication()
                               .UseAuthorization()
                               .UseEndpoints(endpoints =>
                               {
