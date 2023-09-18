@@ -84,7 +84,7 @@ namespace Mensajeria_Linux.Controllers.PlantillasC
         /// <param name="agenciaToken"></param>
         /// <returns> Lista de plantillas </returns>
         [HttpGet("{agenciaNombre}")]
-        public async Task<IActionResult> GetAllInfoEmailByAgencia (string plantilla, string? email,string? token, string agenciaNombre, string? agenciaToken)
+        public async Task<IActionResult> GetAllInfoEmailByAgencia (string? plantilla, string? email,string? token, string agenciaNombre, string? agenciaToken)
         {
             IEnumerable<Plantillas> plantillas = await _plantillaBusiness.GetAllPlantillasByName(plantilla,email, token, agenciaNombre, agenciaToken);
 

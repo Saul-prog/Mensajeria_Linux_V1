@@ -37,7 +37,7 @@ namespace Mensajeria_Linux.Services
         public async Task<int> CreateInfoTeams (CreateInfoTeamsRequest model, int agenciaId)
         {
             
-            if (await _dbCntext.infoTeams.AnyAsync(x => x.webHook == model.webHook))
+            if (await _dbCntext.infoTeams.AnyAsync(x => x.webHook == model.webHook || x.nombre== model.nombre))
             {
                 return 0;
             }            

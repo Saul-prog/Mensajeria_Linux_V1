@@ -111,8 +111,8 @@ namespace Mensajeria_Linux.Business
         public async Task<int> Enviar (EnviarSMS model)
         {
             int agenciaId = await GetIdAgencia(model.adminEmail, model.adminToken, model.agenciaNombre, model.agenciaToken);
-            InfoSMS infoSMS = await _SMSService.GetInfoSMSlByNameAndAgenciaId(model.plantilla, agenciaId);
-            string plantilla = await _plantillaService.GetContenidoPlantillaByNameAndExtensionAndAgenciaId(model.plantilla, "Plana", agenciaId);
+            InfoSMS infoSMS = await _SMSService.GetInfoSMSlByNameAndAgenciaId(model.nombreSMS, agenciaId);
+            string plantilla = await _plantillaService.GetContenidoPlantillaByNameAndExtensionAndAgenciaId(model.plantilla, "PLANA", agenciaId);
             plantilla = plantilla.Replace("{identificador}", model.mensaje);
             foreach (var numero in model.numero)
             {
@@ -124,7 +124,8 @@ namespace Mensajeria_Linux.Business
                     {
                         Message = plantilla,
                         PhoneNumber = numero
-                    });                    
+                    });   
+                    
                 }
                 catch (Exception ex)
                 {

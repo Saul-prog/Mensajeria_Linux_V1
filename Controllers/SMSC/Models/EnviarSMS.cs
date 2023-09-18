@@ -31,6 +31,11 @@ namespace Mensajeria_Linux.Controllers.SMSC.Models
         /// </summary>
         public string? adminEmail { get; set; }
         /// <summary>
+        /// Nombre de los datos SMS que se vana a usar
+        /// </summary>
+        [Required]
+        public string nombreSMS { get; set; }
+        /// <summary>
         /// plantilla que se va a usar para el sms
         /// </summary>
         [Required]

@@ -139,27 +139,27 @@ namespace Mensajeria_Linux.Controllers.Teams
         [HttpPost("Enviar")]
         public async Task<IActionResult> EnviarTeamsConWebHook(EnviarTeams model)
         {
+            int deveulto;
             switch (model.plantilla)
             {
                 case "ProcesoAutorizacion":
-                    int deveulto = await _infoTeamsProvider.EnviarTeamsProcesoAutorizacion(model);
-                    if (deveulto != 0)
-                    {
-                        return new ObjectResult("No se ha enviado correctamente")
-                        {
-                            StatusCode = StatusCodes.Status500InternalServerError
-                        };
-                    }
-                    return new ObjectResult("Se ha enviado correctamente")
-                    {
-                        StatusCode = StatusCodes.Status200OK
-                    };
+                    deveulto = await _infoTeamsProvider.EnviarTeamsProcesoAutorizacion(model);
+                    break;
                 default:
-                    return new ObjectResult("No existe esa plantilla")
-                    {
-                        StatusCode = StatusCodes.Status500InternalServerError
-                    };
+                    deveulto = 0;
+                    break;
             }
+            if (deveulto == 0)
+            {
+                return new ObjectResult("No se ha enviado correctamente")
+                {
+                    StatusCode = StatusCodes.Status500InternalServerError
+                };
+            }
+            return new ObjectResult("Se ha enviado correctamente")
+            {
+                StatusCode = StatusCodes.Status200OK
+            };
         }
     }
 }

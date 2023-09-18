@@ -40,8 +40,7 @@ namespace Mensajeria_Linux.Services
         ///     Fracaso: int = 0
         /// </returns>
         public async Task<int> CreatePlantilla (CreatePlantillaRequest model, int id)
-        {
-            
+        {            
             if(await _dbContext.Plantilla.AnyAsync(x => x.nombre == model.nombre))
             {
                 return 0;
@@ -53,8 +52,7 @@ namespace Mensajeria_Linux.Services
             if (await _dbContext.SaveChangesAsync().ConfigureAwait(true) != 0)
             {
                 return plantilla.id;
-            }
-            
+            }            
             return 0;
         }
 

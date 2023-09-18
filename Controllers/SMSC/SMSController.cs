@@ -137,14 +137,14 @@ namespace Mensajeria_Linux.Controllers.SMSC
         public async Task<IActionResult> EnviarSMS (EnviarSMS model)
         {
             int deveulto = await _SMSBusiness.Enviar(model);
-            if (deveulto == 0)
+            if (deveulto != 0)
             {
-                return new ObjectResult("No se ha actualizado correctamente")
+                return new ObjectResult("No se ha enviado correctamente")
                 {
                     StatusCode = StatusCodes.Status500InternalServerError
                 };
             }
-            return new ObjectResult("Se ha actualizado correctamente")
+            return new ObjectResult("Se ha enviado correctamente")
             {
                 StatusCode = StatusCodes.Status200OK
             };
